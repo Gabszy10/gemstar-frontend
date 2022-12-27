@@ -1,0 +1,18 @@
+$theme-colors: (
+  "primary": #054493,
+  "secondary": #495057,
+  "success": #218838,
+  "error": #e83e8c,
+  "warn": #ffc107,
+  "dark": #000000,
+  "landing_footer": #4d4d4d,
+  "white": #ffffff,
+  "todo": #054493,
+  "cancel": #dc3545,
+  "done": #218838,
+  "pending": #ac5014,
+  "in_progres": #d4b608,
+);
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/react-toastify/dist/ReactToastify.css";
+@import "../node_modules/@syncfusion/ej2-react-schedule/styles/material.css";
