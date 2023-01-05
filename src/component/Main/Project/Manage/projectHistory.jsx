@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Timeline, TimelineEvent } from '@mailtop/horizontal-timeline'
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import RichTextBox from "../../../UI/RichTextBox";
-import { dateFormatting } from './../../../Shared/Helpers/dateFormat';
+import { projectHistoryDate } from './../../../Shared/Helpers/dateFormat';
 
 const ProjectHistory = (props) => {
   const { user_level_acc, createProjectStatus, projectId, projectStatus } =
@@ -97,7 +97,7 @@ const ProjectHistory = (props) => {
                       }}
                     />
                   </>}
-                  subtitle={dateFormatting(res.date_created, "mdy")}
+                  subtitle={projectHistoryDate(res.date_created, "mdy", `${res.first_name} ${res.last_name}`)}
                 />
               );
             })}
