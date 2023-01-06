@@ -34,14 +34,12 @@ const recursiveNavs = (newNavLinks, logout, props) => {
             className="text-dark text-decoration-none"
             to={link.to}
             onClick={() => {
-              logout().then(() => {
-                cookie.remove('_wus_BJK');
-                toast.error('Session Timeout!', {
-                  position: toast.POSITION.TOP_CENTER
-                });
-
-                window.location.href = "https://gemstar-engineering-services.netlify.app/login"
+              cookie.remove('_wus_BJK');
+              toast.error('Session Timeout!', {
+                position: toast.POSITION.TOP_CENTER
               });
+
+              window.location.href = "/"
             }}>
             {link.label}
           </Link>
