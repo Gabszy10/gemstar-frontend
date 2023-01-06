@@ -9,6 +9,7 @@ import {
   getProjectAsAdmin,
   getProjects,
   getProjectsTable,
+  incrementClick,
 } from "../../../store/action";
 import {
   dateFormatDistance,
@@ -63,7 +64,7 @@ const Projects = (props) => {
                       <Link
                         to={`/manage/${project.project_id}`}
                         className="list-group-item list-group-item-action flex-column align-items-start"
-                        style={{ height: '120px' }}
+                        style={{ height: '140px' }}
                       >
                         <div className="d-flex w-100 justify-content-between">
                           <h5 className="mb-1">{project.project_name}</h5>
@@ -104,6 +105,8 @@ const Projects = (props) => {
                             <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
                           )) : null}
                         </p>
+                        <br/>
+                        <p>{project.click} Views</p>
                       </Link>
                     </Col>}
                   </>
@@ -127,7 +130,7 @@ const Projects = (props) => {
                       <Link
                         to={`/manage/${project.project_id}`}
                         className="list-group-item list-group-item-action flex-column align-items-start"
-                        style={{ height: '120px' }}
+                        style={{ height: '140px' }}
                       >
                         <div className="d-flex w-100 justify-content-between">
                           <h5 className="mb-1">{project.project_name}</h5>
@@ -168,6 +171,8 @@ const Projects = (props) => {
                             <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
                           )) : null}
                         </p>
+                        <br/>
+                        <p>{project.click} Views</p>
                       </Link>
                     </Col>}
                   </>
@@ -191,7 +196,7 @@ const Projects = (props) => {
                       <Link
                         to={`/manage/${project.project_id}`}
                         className="list-group-item list-group-item-action flex-column align-items-start"
-                        style={{ height: '120px' }}
+                        style={{ height: '140px' }}
                       >
                         <div className="d-flex w-100 justify-content-between">
                           <h5 className="mb-1">{project.project_name}</h5>
@@ -232,6 +237,8 @@ const Projects = (props) => {
                             <span> {a.first_name}{project.assignedEmployees.length != i + 1 ? ',' : null}</span>
                           )) : null}
                         </p>
+                        <br/>
+                        <p>{project.click} Views</p>
                       </Link>
                     </Col>}
                   </>
@@ -255,7 +262,7 @@ const Projects = (props) => {
                       <Link
                         to={`/manage/${project.project_id}`}
                         className="list-group-item list-group-item-action flex-column align-items-start"
-                        style={{ height: '120px' }}
+                        style={{ height: '140px' }}
                       >
                         <div className="d-flex w-100 justify-content-between">
                           <h5 className="mb-1">{project.project_name}</h5>
@@ -296,6 +303,8 @@ const Projects = (props) => {
                             <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
                           )) : null}
                         </p>
+                        <br/>
+                        <p>{project.click} Views</p>
                       </Link>
                     </Col>}
                   </>
@@ -319,7 +328,7 @@ const Projects = (props) => {
                       <Link
                         to={`/manage/${project.project_id}`}
                         className="list-group-item list-group-item-action flex-column align-items-start"
-                        style={{ height: '120px' }}
+                        style={{ height: '140px' }}
                       >
                         <div className="d-flex w-100 justify-content-between">
                           <h5 className="mb-1">{project.project_name}</h5>
@@ -360,6 +369,8 @@ const Projects = (props) => {
                             <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
                           )) : null}
                         </p>
+                        <br/>
+                        <p>{project.click} Views</p>
                       </Link>
                     </Col>}
                   </>

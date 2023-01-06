@@ -24,6 +24,7 @@ import {
   showQuotationToClient,
   getEmployeeList,
   createProjectStatus,
+  incrementClick,
 } from "../../../../store/action";
 import { dateFormatting } from "./../../../Shared/Helpers/dateFormat";
 import MainBody from "../../../UI/MainBody";
@@ -54,6 +55,7 @@ const ManageModule = (props) => {
     showQuotationToClient,
     getEmployeeList,
     services,
+    incrementClick
   } = props;
   const [projectDetails, setProjectDetails] = useState({});
   const [projectFiles, setProjectFiles] = useState([]);
@@ -77,9 +79,9 @@ const ManageModule = (props) => {
   }, []);
 
   const fetchProjecto = async () => {
-      await fetchServices();
-      await getEmployeeList();
-      setIsLoading(false)
+    await fetchServices();
+    await getEmployeeList();
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -109,6 +111,13 @@ const ManageModule = (props) => {
     projectId,
     isLoaded,
   ]);
+
+  useEffect(() => {
+    if (projectId) {
+      incrementClick(projectId);
+    }
+  }, [projectId, incrementClick])
+
 
   const quotationStatusReturn = {
     accept: () => (
@@ -532,6 +541,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(showQuotationToClient(projectData)),
     fetchServices: () => dispatch(fetchServices()),
     getEmployeeList: () => dispatch(getEmployeeList()),
+    incrementClick: (projectId) => dispatch(incrementClick(projectId)),
   };
 };
 
