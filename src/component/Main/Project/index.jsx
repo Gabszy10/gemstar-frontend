@@ -105,7 +105,6 @@ const Projects = (props) => {
                             <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
                           )) : null}
                         </p>
-                        <br/>
                         <p>{project.click} Views</p>
                       </Link>
                     </Col>}
@@ -171,7 +170,6 @@ const Projects = (props) => {
                             <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
                           )) : null}
                         </p>
-                        <br/>
                         <p>{project.click} Views</p>
                       </Link>
                     </Col>}
@@ -237,7 +235,6 @@ const Projects = (props) => {
                             <span> {a.first_name}{project.assignedEmployees.length != i + 1 ? ',' : null}</span>
                           )) : null}
                         </p>
-                        <br/>
                         <p>{project.click} Views</p>
                       </Link>
                     </Col>}
@@ -303,7 +300,6 @@ const Projects = (props) => {
                             <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
                           )) : null}
                         </p>
-                        <br/>
                         <p>{project.click} Views</p>
                       </Link>
                     </Col>}
@@ -369,7 +365,6 @@ const Projects = (props) => {
                             <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
                           )) : null}
                         </p>
-                        <br/>
                         <p>{project.click} Views</p>
                       </Link>
                     </Col>}
