@@ -43,7 +43,7 @@ export const dateFormatting = (value, formatKey) => {
 export const projectHistoryDate = (value, formatKey, empName) => {
   const date = new Date(value);
   console.log(new Date(value), "MY DATE IS OK")
-  return `${empName} - ${format(value, formatValues[formatKey || 'default'])} - ${date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`;
+  return `${empName} | ${format(value, formatValues[formatKey || 'default'])} ${date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: false })}`;
 };
 
 //Added this to display the date in the Field with input type date
