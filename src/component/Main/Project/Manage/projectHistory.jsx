@@ -85,13 +85,14 @@ const ProjectHistory = (props) => {
                   color={res.status_name.toLowerCase().includes('in progress') ? '#d4b608' : '#218838'}
                   title={<>
                     <h5
-                      style={{ marginTop: '10px' }}
+                      style={{ marginTop: '10px', fontSize: '15px' }}
                       dangerouslySetInnerHTML={{
                         __html: res.remarks,
                       }}
                     />
-                    <hr />
+                    <hr style={{marginTop:'-10px'}}/>
                     <h6
+                      style={{ marginTop: '-10px', fontSize: '15px' }}
                       dangerouslySetInnerHTML={{
                         __html: res.status_name,
                       }}
