@@ -78,32 +78,36 @@ const ProjectHistory = (props) => {
         <Col>
           <Timeline minEvents={projectStatus.length} placeholder>
             {[...projectStatus].reverse().map((res, i) => {
+
               return (
-                <TimelineEvent
-                  key={i}
-                  
-                  color={res.status_name.toLowerCase().includes('in progress') ? '#d4b608' : '#218838'}
-                  title={<>
-                    <h5
-                      style={{ marginTop: '10px', fontSize: '15px' }}
-                      dangerouslySetInnerHTML={{
-                        __html: res.remarks,
-                      }}
-                    />
-                    <hr style={{marginTop:'-10px'}}/>
-                    <h6
-                      style={{ marginTop: '-10px', fontSize: '15px' }}
-                      dangerouslySetInnerHTML={{
-                        __html: res.status_name,
-                      }}
-                    />
-                  </>}
-                  subtitle={projectHistoryDate(res.date_created, "mdy", `${res.first_name} ${res.last_name}`)}
-                />
-              );
+                <>
+                  <TimelineEvent
+                    key={i}
+
+                    color={res.status_name.toLowerCase().includes('in progress') ? '#d4b608' : '#218838'}
+                    title={<>
+                      <h5
+                        style={{ marginTop: '10px', fontSize: '15px' }}
+                        dangerouslySetInnerHTML={{
+                          __html: res.remarks,
+                        }}
+                      />
+                      <hr style={{ marginTop: '-10px' }} />
+                      <h6
+                        style={{ marginTop: '-10px', fontSize: '15px' }}
+                        dangerouslySetInnerHTML={{
+                          __html: res.status_name,
+                        }}
+                      />
+                    </>}
+                  // subtitle={projectHistoryDate(res.date_created, "mdy", `${res.first_name} ${res.last_name}`)}
+                  />
+                  <div dangerouslySetInnerHTML={{__html: projectHistoryDate(res.date_created, "mdy", `${res.first_name} ${res.last_name}`)}}/>
+                </>
+          );
             })}
 
-            {/* <TimelineEvent
+          {/* <TimelineEvent
               color='#9c2919'
               title='Erro'
               subtitle='26/03/2019 09:51'
@@ -121,10 +125,10 @@ const ProjectHistory = (props) => {
                 onClick: () => window.alert('Erro!')
               }}
             /> */}
-          </Timeline>
-        </Col>
-      </Row>
-    </Fragment>
+        </Timeline>
+      </Col>
+    </Row>
+    </Fragment >
   );
 };
 
