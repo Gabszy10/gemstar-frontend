@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.42a3d1c8.css",
+    "main.js": "/static/js/main.68532306.js",
+    "static/js/787.4d19443e.chunk.js": "/static/js/787.4d19443e.chunk.js",
+    "static/media/MaterialIcons-Regular.ttf": "/static/media/MaterialIcons-Regular.24a6611c28f373a0e1d7.ttf",
+    "static/media/MaterialIcons-Regular.woff": "/static/media/MaterialIcons-Regular.824b570fb059ee0a44a9.woff",
+    "static/media/isuzu.jpg": "/static/media/isuzu.dad72864a569615268d5.jpg",
+    "static/media/MaterialIcons-Regular.eot": "/static/media/MaterialIcons-Regular.28d729e6d7a187ee4978.eot",
+    "static/media/MaterialIcons-Regular.woff2": "/static/media/MaterialIcons-Regular.97b9b1857a2af7322eba.woff2",
+    "static/media/honda.jpg": "/static/media/honda.d112be925682eade4823.jpg",
+    "static/media/logo.png": "/static/media/logo.e8cc411d261533d262a8.png",
+    "static/media/kia.jpg": "/static/media/kia.8a7dc2f4e0a71465e127.jpg",
+    "index.html": "/index.html",
+    "main.42a3d1c8.css.map": "/static/css/main.42a3d1c8.css.map",
+    "main.68532306.js.map": "/static/js/main.68532306.js.map",
+    "787.4d19443e.chunk.js.map": "/static/js/787.4d19443e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42a3d1c8.css",
+    "static/js/main.68532306.js"
+  ]
+}
