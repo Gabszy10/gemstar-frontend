@@ -422,16 +422,25 @@ const ManageModule = (props) => {
                 Employee Assignment
               </Card.Title>
               <Row className="mx-2 mb-2">
-                <Col xs={12} md={4}>
+                <Col xs={12} md={12}>
                   Assigned Employee:
                 </Col>
+                <br/>
+                <br/>
                 <Col xs={12} md={8}>
                   {
-                    assignedEmployees && assignedEmployees.map(emp => {
-                      return <div>
-                        {`${emp.first_name} ${emp.last_name}`}
-                      </div>
-                    })
+                    <table>
+                      <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                      </tr>
+                      {assignedEmployees && assignedEmployees.map(emp => {
+                        return <tr>
+                          <td>{emp.first_name} {emp.last_name}</td>
+                          <td>{dateFormatting(emp.created_at, 'mmdy')}</td>
+                        </tr>
+                      })}
+                    </table>
                   }
                   {console.log(projectDetails.assignedEmployees, "TEST")}
                   {projectDetails.assignedEmployees && projectDetails.assignedEmployees.length ? '' : 'No assigned employees'}
