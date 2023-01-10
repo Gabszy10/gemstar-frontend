@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.03f14ad9.css",
-    "main.js": "/static/js/main.252a54a5.js",
+    "main.css": "/static/css/main.fadd3b3f.css",
+    "main.js": "/static/js/main.2061305a.js",
     "static/js/787.4d19443e.chunk.js": "/static/js/787.4d19443e.chunk.js",
     "static/media/MaterialIcons-Regular.ttf": "/static/media/MaterialIcons-Regular.24a6611c28f373a0e1d7.ttf",
     "static/media/MaterialIcons-Regular.woff": "/static/media/MaterialIcons-Regular.824b570fb059ee0a44a9.woff",
@@ -12,12 +12,12 @@
     "static/media/logo.png": "/static/media/logo.e8cc411d261533d262a8.png",
     "static/media/kia.jpg": "/static/media/kia.8a7dc2f4e0a71465e127.jpg",
     "index.html": "/index.html",
-    "main.03f14ad9.css.map": "/static/css/main.03f14ad9.css.map",
-    "main.252a54a5.js.map": "/static/js/main.252a54a5.js.map",
+    "main.fadd3b3f.css.map": "/static/css/main.fadd3b3f.css.map",
+    "main.2061305a.js.map": "/static/js/main.2061305a.js.map",
     "787.4d19443e.chunk.js.map": "/static/js/787.4d19443e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.03f14ad9.css",
-    "static/js/main.252a54a5.js"
+    "static/css/main.fadd3b3f.css",
+    "static/js/main.2061305a.js"
   ]
 }
