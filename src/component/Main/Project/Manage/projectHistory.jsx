@@ -102,7 +102,7 @@ const ProjectHistory = (props) => {
                     </>}
                   // subtitle={projectHistoryDate(res.date_created, "mdy", `${res.first_name} ${res.last_name}`)}
                   />
-                  <div dangerouslySetInnerHTML={{__html: projectHistoryDate(res.date_created, "mdy", `${res.first_name} ${res.last_name}`)}}/>
+                  <div style={{marginTop:'-7px'}}dangerouslySetInnerHTML={{__html: projectHistoryDate(res.date_created, "mdy", `${res.first_name} ${res.last_name}`)}}/>
                 </>
           );
             })}
