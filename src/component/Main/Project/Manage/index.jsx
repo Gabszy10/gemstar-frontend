@@ -26,7 +26,7 @@ import {
   createProjectStatus,
   incrementClick,
 } from "../../../../store/action";
-import { dateFormatting } from "./../../../Shared/Helpers/dateFormat";
+import { assignedDate, dateFormatting } from "./../../../Shared/Helpers/dateFormat";
 import MainBody from "../../../UI/MainBody";
 import Comment from "./comment";
 import CreateQuotation from "./CreateQuotation";
@@ -434,10 +434,11 @@ const ManageModule = (props) => {
                         <th>Name</th>
                         <th>Date</th>
                       </tr>
+                      {console.log(assignedEmployees)}
                       {assignedEmployees && assignedEmployees.map(emp => {
                         return <tr>
                           <td>{emp.first_name} {emp.last_name}</td>
-                          <td>{dateFormatting(emp.created_at, 'mmdy')}</td>
+                          <td>{assignedDate(emp.assignedDate, 'mmdy')}</td>
                         </tr>
                       })}
                     </table>
@@ -445,6 +446,8 @@ const ManageModule = (props) => {
                   {console.log(projectDetails.assignedEmployees, "TEST")}
                   {projectDetails.assignedEmployees && projectDetails.assignedEmployees.length ? '' : 'No assigned employees'}
                 </Col>
+                <br/>
+                <br/>
               </Row>
               <Row className="mx-2">
                 <Col>

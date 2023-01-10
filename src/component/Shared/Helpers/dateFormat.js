@@ -40,6 +40,11 @@ export const dateFormatting = (value, formatKey) => {
   return format(value, formatValues[formatKey || 'default']);
 };
 
+export const assignedDate = (value, formatKey) => {
+  const date = new Date(value);
+  return format(date, formatValues[formatKey || 'default']);
+};
+
 export const projectHistoryDate = (value, formatKey, empName) => {
   const date = new Date(value);
   console.log(new Date(value), "MY DATE IS OK")

@@ -40,3 +40,8 @@
 .jss18 {
   overflow-x: auto !important;
 }
+
+.Timeline-wrapper-1{
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
