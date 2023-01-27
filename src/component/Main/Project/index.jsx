@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Badge, Row, Col, Table } from "react-bootstrap";
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 import parse from 'html-react-parser';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -15,6 +17,7 @@ import {
   dateFormatDistance,
   dateFormatting,
 } from "../../Shared/Helpers/dateFormat";
+import ProjectPaging from "../../UI/Project";
 
 const Projects = (props) => {
   const {
@@ -46,338 +49,38 @@ const Projects = (props) => {
   console.log("Project", projectList)
 
   const CardList = () => {
-    return projectList.length > 0 ? (
-      <>
-        <Row>
-          <Col xs={12} md={3} lg={3}>
-            <Row>
-              {projectList.map((project, index) => {
-                return (
-                  <>
-                    {project.status_name === "To Do" && <Col
-                      key={`project-${index}`}
-                      xs={12}
-                      md={12}
-                      lg={12}
-                      className="my-2"
-                    >
-                      <Link
-                        to={`/manage/${project.project_id}`}
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        style={{ height: '140px' }}
-                      >
-                        <div className="d-flex w-100 justify-content-between">
-                          <h5 className="mb-1">{project.project_name}</h5>
-                          <small>
-                            Deadline {dateFormatDistance(
-                              project.end_date,
-                              Date.now()
-                            )}
-                          </small>
-                        </div>
-                        <p className="mb-0 fw-normal text-muted">
-                          {parse(project.project_description
-                            .replace(/<p>/g, " ")
-                            .replace(/<\/p>/g, " ")
-                            .replace(/<h1>/g, " ")
-                            .replace(/<\/h1>/g, " ")
-                            .replace(/<h2>/g, " ")
-                            .replace(/<\/h2>/g, " ")
-                            .replace(/<h3>/g, " ")
-                            .replace(/<\/h3>/g, " ")
-                            .replace(/<br>/g, " ")
-                            .replace(/<ol>/g, " ")
-                            .replace(/<\/ol>/g, " ")
-                            .replace(/<li>/g, " ")
-                            .replace(/<\/li>/g, " ")
-                            .replace(/<\/strong>/g, " ")
-                            .replace(/<strong>/g, " ")
-                            .replace(/<em>/g, " ")
-                            .replace(/<\/em>/g, " ")
-                            .slice(0, 50)) ?? "No Description"}
-                          {project.project_description.length > 40 ? '...' : ''}
-                        </p>
-                        <p className="mb-0 fw-normal text-muted">
-                          <Badge bg={project.status_acr}>
-                            {project.status_name}
-                          </Badge>{" "}
-                          {project.assignedEmployees.length ? project.assignedEmployees.map((a, i) => (
-                            <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
-                          )) : null}
-                        </p>
-                        <p>{project.click} Views</p>
-                      </Link>
-                    </Col>}
-                  </>
-                );
-              })}
-            </Row>
-          </Col>
 
-          <Col xs={12} md={3} lg={3}>
+    return projectList.length > 0 ?  (
+      <Tabs
+        defaultActiveKey="profile"
+        id="uncontrolled-tab-example"
+        className="mb-3"
+      >
+        <Tab eventKey="To Do" title="TO DO" style={{ border: 'none' }}>
+          <Col md={12}>
             <Row>
-              {projectList.map((project, index) => {
-                return (
-                  <>
-                    {project.status_name === "Pending" && <Col
-                      key={`project-${index}`}
-                      xs={12}
-                      md={12}
-                      lg={12}
-                      className="my-2"
-                    >
-                      <Link
-                        to={`/manage/${project.project_id}`}
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        style={{ height: '140px' }}
-                      >
-                        <div className="d-flex w-100 justify-content-between">
-                          <h5 className="mb-1">{project.project_name}</h5>
-                          <small>
-                            Deadline {dateFormatDistance(
-                              project.end_date,
-                              Date.now()
-                            )}
-                          </small>
-                        </div>
-                        <p className="mb-0 fw-normal text-muted">
-                          {parse(project.project_description
-                            .replace(/<p>/g, " ")
-                            .replace(/<\/p>/g, " ")
-                            .replace(/<h1>/g, " ")
-                            .replace(/<\/h1>/g, " ")
-                            .replace(/<h2>/g, " ")
-                            .replace(/<\/h2>/g, " ")
-                            .replace(/<h3>/g, " ")
-                            .replace(/<\/h3>/g, " ")
-                            .replace(/<br>/g, " ")
-                            .replace(/<ol>/g, " ")
-                            .replace(/<\/ol>/g, " ")
-                            .replace(/<li>/g, " ")
-                            .replace(/<\/li>/g, " ")
-                            .replace(/<\/strong>/g, " ")
-                            .replace(/<strong>/g, " ")
-                            .replace(/<em>/g, " ")
-                            .replace(/<\/em>/g, " ")
-                            .slice(0, 50)) ?? "No Description"}
-                          {project.project_description.length > 40 ? '...' : ''}
-                        </p>
-                        <p className="mb-0 fw-normal text-muted">
-                          <Badge bg={project.status_acr}>
-                            {project.status_name}
-                          </Badge>{" "}
-                          {project.assignedEmployees.length ? project.assignedEmployees.map((a, i) => (
-                            <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
-                          )) : null}
-                        </p>
-                        <p>{project.click} Views</p>
-                      </Link>
-                    </Col>}
-                  </>
-                );
-              })}
+              <ProjectPaging projectList={projectList} statusName="To Do" itemsPerPage={5} />
             </Row>
           </Col>
+        </Tab>
+        <Tab eventKey="Pending" title="PENDING" style={{ border: 'none' }}>
+          <ProjectPaging projectList={projectList} statusName="Pending" itemsPerPage={5} />
+        </Tab>
+        <Tab eventKey="In Progress" title="IN PROGRESS" style={{ border: 'none' }}>
+          <ProjectPaging projectList={projectList} statusName="In Progress" itemsPerPage={5} />
+        </Tab>
+        <Tab eventKey="Done" title="DONE" style={{ border: 'none' }}>
+          <ProjectPaging projectList={projectList} statusName="Done" itemsPerPage={5} />
+        </Tab>
+        <Tab eventKey="Cancelled" title="CANCELLED" style={{ border: 'none' }}>
+          <ProjectPaging projectList={projectList} statusName="Cancelled" itemsPerPage={5} />
+        </Tab>
+        <Tab eventKey="Most Accessed" title="MOST ACCESSED" style={{ border: 'none' }}>
+          <ProjectPaging projectList={projectList} statusName="Most Accessed" itemsPerPage={5} />
+        </Tab>
+      </Tabs>
+    ) : <h5 className="border py-3 text-center">{isLoading ? 'Loading...' : 'No Projects'}</h5>;
 
-          <Col xs={12} md={3} lg={3}>
-            <Row>
-              {projectList.map((project, index) => {
-                return (
-                  <>
-                    {project.status_name === "In Progress" && <Col
-                      key={`project-${index}`}
-                      xs={12}
-                      md={12}
-                      lg={12}
-                      className="my-2"
-                    >
-                      <Link
-                        to={`/manage/${project.project_id}`}
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        style={{ height: '140px' }}
-                      >
-                        <div className="d-flex w-100 justify-content-between">
-                          <h5 className="mb-1">{project.project_name}</h5>
-                          <small>
-                            Deadline {dateFormatDistance(
-                              project.end_date,
-                              Date.now()
-                            )}
-                          </small>
-                        </div>
-                        <p className="mb-0 fw-normal text-muted">
-                          {parse(project.project_description
-                            .replace(/<p>/g, " ")
-                            .replace(/<\/p>/g, " ")
-                            .replace(/<h1>/g, " ")
-                            .replace(/<\/h1>/g, " ")
-                            .replace(/<h2>/g, " ")
-                            .replace(/<\/h2>/g, " ")
-                            .replace(/<h3>/g, " ")
-                            .replace(/<\/h3>/g, " ")
-                            .replace(/<br>/g, " ")
-                            .replace(/<ol>/g, " ")
-                            .replace(/<\/ol>/g, " ")
-                            .replace(/<li>/g, " ")
-                            .replace(/<\/li>/g, " ")
-                            .replace(/<\/strong>/g, " ")
-                            .replace(/<strong>/g, " ")
-                            .replace(/<em>/g, " ")
-                            .replace(/<\/em>/g, " ")
-                            .slice(0, 50)) ?? "No Description"}
-                          {project.project_description.length > 40 ? '...' : ''}
-                        </p>
-                        <p className="mb-0 fw-normal text-muted">
-                          <Badge bg={project.status_acr}>
-                            {project.status_name}
-                          </Badge>{" "}
-                          {project.assignedEmployees && project.assignedEmployees.length ? project.assignedEmployees.map((a, i) => (
-                            <span> {a.first_name}{project.assignedEmployees.length != i + 1 ? ',' : null}</span>
-                          )) : null}
-                        </p>
-                        <p>{project.click} Views</p>
-                      </Link>
-                    </Col>}
-                  </>
-                );
-              })}
-            </Row>
-          </Col>
-
-          <Col xs={12} md={3} lg={3}>
-            <Row>
-              {projectList.map((project, index) => {
-                return (
-                  <>
-                    {project.status_name === "Done" && <Col
-                      key={`project-${index}`}
-                      xs={12}
-                      md={12}
-                      lg={12}
-                      className="my-2"
-                    >
-                      <Link
-                        to={`/manage/${project.project_id}`}
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        style={{ height: '140px' }}
-                      >
-                        <div className="d-flex w-100 justify-content-between">
-                          <h5 className="mb-1">{project.project_name}</h5>
-                          <small>
-                            Deadline {dateFormatDistance(
-                              project.end_date,
-                              Date.now()
-                            )}
-                          </small>
-                        </div>
-                        <p className="mb-0 fw-normal text-muted">
-                          {parse(project.project_description
-                            .replace(/<p>/g, " ")
-                            .replace(/<\/p>/g, " ")
-                            .replace(/<h1>/g, " ")
-                            .replace(/<\/h1>/g, " ")
-                            .replace(/<h2>/g, " ")
-                            .replace(/<\/h2>/g, " ")
-                            .replace(/<h3>/g, " ")
-                            .replace(/<\/h3>/g, " ")
-                            .replace(/<br>/g, " ")
-                            .replace(/<ol>/g, " ")
-                            .replace(/<\/ol>/g, " ")
-                            .replace(/<li>/g, " ")
-                            .replace(/<\/li>/g, " ")
-                            .replace(/<\/strong>/g, " ")
-                            .replace(/<strong>/g, " ")
-                            .replace(/<em>/g, " ")
-                            .replace(/<\/em>/g, " ")
-                            .slice(0, 50)) ?? "No Description"}
-                          {project.project_description.length > 40 ? '...' : ''}
-                        </p>
-                        <p className="mb-0 fw-normal text-muted">
-                          <Badge bg={project.status_acr}>
-                            {project.status_name}
-                          </Badge>{" "}
-                          {project.assignedEmployees && project.assignedEmployees.length ? project.assignedEmployees.map((a, i) => (
-                            <span> {a.first_name}{project.assignedEmployees.length != i + 1 ? ',' : null}</span>
-                          )) : null}
-                        </p>
-                        <p>{project.click} Views</p>
-                      </Link>
-                    </Col>}
-                  </>
-                );
-              })}
-            </Row>
-          </Col>
-
-          <Col xs={12} md={3} lg={3}>
-            <Row>
-              {projectList.map((project, index) => {
-                return (
-                  <>
-                    {project.status_name === "Cancelled" && <Col
-                      key={`project-${index}`}
-                      xs={12}
-                      md={12}
-                      lg={12}
-                      className="my-2"
-                    >
-                      <Link
-                        to={`/manage/${project.project_id}`}
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        style={{ height: '140px' }}
-                      >
-                        <div className="d-flex w-100 justify-content-between">
-                          <h5 className="mb-1">{project.project_name}</h5>
-                          <small>
-                            Deadline {dateFormatDistance(
-                              project.end_date,
-                              Date.now()
-                            )}
-                          </small>
-                        </div>
-                        <p className="mb-0 fw-normal text-muted">
-                          {parse(project.project_description
-                            .replace(/<p>/g, " ")
-                            .replace(/<\/p>/g, " ")
-                            .replace(/<h1>/g, " ")
-                            .replace(/<\/h1>/g, " ")
-                            .replace(/<h2>/g, " ")
-                            .replace(/<\/h2>/g, " ")
-                            .replace(/<h3>/g, " ")
-                            .replace(/<\/h3>/g, " ")
-                            .replace(/<br>/g, " ")
-                            .replace(/<ol>/g, " ")
-                            .replace(/<\/ol>/g, " ")
-                            .replace(/<li>/g, " ")
-                            .replace(/<\/li>/g, " ")
-                            .replace(/<\/strong>/g, " ")
-                            .replace(/<strong>/g, " ")
-                            .replace(/<em>/g, " ")
-                            .replace(/<\/em>/g, " ")
-                            .slice(0, 50)) ?? "No Description"}
-                          {project.project_description.length > 40 ? '...' : ''}
-                        </p>
-                        <p className="mb-0 fw-normal text-muted">
-                          <Badge bg={project.status_acr}>
-                            {project.status_name}
-                          </Badge>{" "}
-                          {project.assignedEmployees.length ? project.assignedEmployees.map((a, i) => (
-                            <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
-                          )) : null}
-                        </p>
-                        <p>{project.click} Views</p>
-                      </Link>
-                    </Col>}
-                  </>
-                );
-              })}
-            </Row>
-          </Col>
-        </Row>
-      </>
-    ) : (
-      <h5 className="border py-3 text-center">{isLoading ? 'Loading...' : 'No Projects'}</h5>
-    );
   };
 
   const TableComponent = () => {
