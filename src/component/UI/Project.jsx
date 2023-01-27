@@ -55,7 +55,7 @@ function Items({ currentItems }) {
                                     {project.status_name}
                                 </Badge>{" "}
                                 {project.assignedEmployees.length ? project.assignedEmployees.map((a, i) => (
-                                    <span>{a.first_name} {project.assignedEmployees.length != i ? ',' : null}</span>
+                                    <span>{a.first_name}{project.assignedEmployees.length != i+1 ? ', ' : null}</span>
                                 )) : null}
                             </p>
                             <p>{project.click} Views</p>
