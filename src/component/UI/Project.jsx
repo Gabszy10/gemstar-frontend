@@ -77,7 +77,7 @@ function PaginatedItems({ itemsPerPage, projectList, statusName }) {
     useEffect(() => {
         if (statusName === "Most Accessed") {
             setProjects(projectList.sort((a, b) => parseFloat(b.click) - parseFloat(a.click)));
-            setTotalProject(projectList.length);
+            setTotalProject(projectList);
         } else {
             setProjects(projectList.filter(a => a.status_name === statusName));
             setTotalProject(projectList.filter(a => a.status_name === statusName));
