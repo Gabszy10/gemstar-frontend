@@ -125,10 +125,10 @@ const ViewSaleInvoice = props => {
                         <Table className="mb-0" bordered hover>
                           <thead>
                             <tr className="text-center">
-                              <th>Qty.</th>
-                              <th>Unit</th>
+                              <th>QTY.</th>
+                              <th>UNIT</th>
                               <th>ARTICLES</th>
-                              <th>Unit Price</th>
+                              <th>UNIT Price</th>
                               <th>AMOUNT</th>
                             </tr>
                           </thead>

@@ -88,16 +88,16 @@
 }
 
 .active {
-  border: solid 1px #808e9b;
+  border: solid 1px #000000;
   border-radius: 40px;
-  color: #808e9b;
+  color: #000000;
 }
 
 .break-me {
 }
 
 .next {
-  border-left: solid 1px #808e9b;
+  border-left: solid 1px #000000;
   font-size: 20px;
   height: 60px;
   position: absolute;
@@ -111,17 +111,17 @@
 
 .next a {
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .previous a {
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .pagination {
   align-items: center;
-  background-color: #0fbcf9;
+  background-color: #E9EBFE;
   display: flex;
   flex-direction: row;
   height: 60px;
@@ -135,7 +135,7 @@
 }
 
 .previous {
-  border-right: solid 1px #808e9b;
+  border-right: solid 1px #000000;
   font-size: 20px;
   height: 60px;
   left: 0;
