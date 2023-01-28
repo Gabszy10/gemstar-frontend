@@ -128,7 +128,7 @@ const ViewSaleInvoice = props => {
                               <th>QTY.</th>
                               <th>UNIT</th>
                               <th>ARTICLES</th>
-                              <th>UNIT Price</th>
+                              <th>UNIT PRICE</th>
                               <th>AMOUNT</th>
                             </tr>
                           </thead>
