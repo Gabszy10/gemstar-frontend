@@ -49,8 +49,8 @@ const Projects = (props) => {
   console.log("Project", projectList)
 
   const CardList = () => {
-
-    return projectList.length > 0 ?  (
+    
+    return projectList && projectList.length > 0 ?  (
       <Tabs
         defaultActiveKey="profile"
         id="uncontrolled-tab-example"
