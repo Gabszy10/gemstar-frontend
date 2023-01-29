@@ -220,6 +220,19 @@ export const incrementClick = (projectId) => (dispatch, getState) => {
     });
 };
 
+export const updateProjectStatus = (projectId, statusId) => (dispatch, getState) => {
+  return axiosInstance("PUT", `project/status/update/${projectId}`, {statusId})
+    .then((res) => res.data)
+    .then((res) => {
+      if (res.success) {
+        dispatch({
+          type: projectActionType.MERGE_PROJECT_DETAILS,
+          projectDetails: res.projectDetails,
+        });
+      }
+    });
+};
+
 export const getProjectsDetails = (projectId) => (dispatch, getState) => {
   return axiosInstance("get", `project/fetch/${projectId}`)
     .then((res) => res.data)

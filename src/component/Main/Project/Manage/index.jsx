@@ -25,6 +25,7 @@ import {
   getEmployeeList,
   createProjectStatus,
   incrementClick,
+  updateProjectStatus,
 } from "../../../../store/action";
 import { assignedDate, dateFormatting } from "./../../../Shared/Helpers/dateFormat";
 import MainBody from "../../../UI/MainBody";
@@ -55,7 +56,8 @@ const ManageModule = (props) => {
     showQuotationToClient,
     getEmployeeList,
     services,
-    incrementClick
+    incrementClick,
+    updateProjectStatus
   } = props;
   const [projectDetails, setProjectDetails] = useState({});
   const [projectFiles, setProjectFiles] = useState([]);
@@ -148,7 +150,12 @@ const ManageModule = (props) => {
       <Button
         className="my-1 mx-1"
         variant="cancel"
-        onClick={() => setShowCreateQuotation(true)}
+        onClick={() => {
+          if (window.confirm("Are you to decline this offer?")) {
+            updateProjectStatus(projectId, 5)
+            window.location.href = "/projects";
+          }
+        }}
       >
         Decline Offer
       </Button>
@@ -425,8 +432,8 @@ const ManageModule = (props) => {
                 <Col xs={12} md={12}>
                   Assigned Employee:
                 </Col>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <Col xs={12} md={8}>
                   {
                     <table>
@@ -446,8 +453,8 @@ const ManageModule = (props) => {
                   {console.log(projectDetails.assignedEmployees, "TEST")}
                   {projectDetails.assignedEmployees && projectDetails.assignedEmployees.length ? '' : 'No assigned employees'}
                 </Col>
-                <br/>
-                <br/>
+                <br />
+                <br />
               </Row>
               <Row className="mx-2">
                 <Col>
@@ -554,6 +561,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchServices: () => dispatch(fetchServices()),
     getEmployeeList: () => dispatch(getEmployeeList()),
     incrementClick: (projectId) => dispatch(incrementClick(projectId)),
+    updateProjectStatus: (projectId, statusId) => dispatch(updateProjectStatus(projectId, statusId))
   };
 };
 
