@@ -241,7 +241,7 @@ const ManageModule = (props) => {
                   {quotationStatusReturn.viewOfficialReceipt()}
                 </>
               ) : (
-                <>{quotationStatusReturn.accept() && quotationStatusReturn.decline()}</>
+                <>{quotationStatusReturn.accept()}  {quotationStatusReturn.decline()}</>
               )}
             </>
           );
