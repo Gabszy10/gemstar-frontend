@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.04861fa7.css",
-    "main.js": "/static/js/main.453e4764.js",
+    "main.js": "/static/js/main.e266598b.js",
     "static/js/787.4d19443e.chunk.js": "/static/js/787.4d19443e.chunk.js",
     "static/media/MaterialIcons-Regular.ttf": "/static/media/MaterialIcons-Regular.24a6611c28f373a0e1d7.ttf",
     "static/media/MaterialIcons-Regular.woff": "/static/media/MaterialIcons-Regular.824b570fb059ee0a44a9.woff",
@@ -13,11 +13,11 @@
     "static/media/kia.jpg": "/static/media/kia.8a7dc2f4e0a71465e127.jpg",
     "index.html": "/index.html",
     "main.04861fa7.css.map": "/static/css/main.04861fa7.css.map",
-    "main.453e4764.js.map": "/static/js/main.453e4764.js.map",
+    "main.e266598b.js.map": "/static/js/main.e266598b.js.map",
     "787.4d19443e.chunk.js.map": "/static/js/787.4d19443e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.04861fa7.css",
-    "static/js/main.453e4764.js"
+    "static/js/main.e266598b.js"
   ]
 }

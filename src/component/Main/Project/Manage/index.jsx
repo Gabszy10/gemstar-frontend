@@ -445,7 +445,7 @@ const ManageModule = (props) => {
                       {assignedEmployees && assignedEmployees.map(emp => {
                         return <tr>
                           <td>{emp.first_name} {emp.last_name}</td>
-                          <td>{assignedDate(emp.assignedDate, 'mmdy')}</td>
+                          <td>{emp.assignedDate && assignedDate(emp.assignedDate, 'mmdy')}</td>
                         </tr>
                       })}
                     </table>
